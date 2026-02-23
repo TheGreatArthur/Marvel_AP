@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  color: #0f0f12;
+  background-color: #0f0f12;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(215, 38, 56, 0.35), transparent 55%),
+    linear-gradient(160deg, #0f0f12 0%, #15141b 45%, #1b1c23 100%);
+  color: #f8f4ef;
+}
+
+a {
+  color: inherit;
+}
+
+.page-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.page-shell::before,
+.page-shell::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(40px);
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.page-shell::before {
+  width: 340px;
+  height: 340px;
+  background: #d72638;
+  top: -120px;
+  right: -120px;
+}
+
+.page-shell::after {
+  width: 220px;
+  height: 220px;
+  background: #f25c54;
+  bottom: 80px;
+  left: -80px;
+}
+
+.surface {
+  background: rgba(15, 15, 18, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(15, 15, 18, 0.35);
+  backdrop-filter: blur(14px);
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

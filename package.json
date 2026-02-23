@@ -1,0 +1,17 @@
+{
+  "name": "marvel-heroes-explorer",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm:dev --prefix server\" \"npm:dev --prefix client\"",
+    "build": "npm run build --prefix server && npm run build --prefix client",
+    "start": "npm run start --prefix server",
+    "test:docker": "docker build -f Dockerfile.build --target build -t marvel-heroes-explorer-build:test ."
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
